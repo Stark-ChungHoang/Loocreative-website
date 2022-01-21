@@ -1,5 +1,45 @@
-.page-five {
+.page-two {
     height: 100vh;
-    background-color: violet;
+    background: url("../../assets/images/newmain2.b7296779.png");
     width: 100%;
+    position: relative;
+    user-select: none;
+    .page-two-content {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+    }
+    .brand_name_wr {
+        position: absolute;
+        top: 10%;
+        left: 12.5%;
+        font-size: 14px;
+        line-height: 25px;
+        .par {
+            line-height: 24px;
+            color: #fff;
+            cursor: text;
+            font-family: "Montserrat";
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .text_wr {
+        max-width: 100%;
+        font-size: 126px;
+        font-weight: 100;
+        text-align: center;
+        line-height: 8.5rem;
+        p {
+            font-weight: 700;
+            word-break: keep-all;
+            transition: all 0.2s;
+            color: #fff;
+            cursor: text;
+            font-family: "Montserrat";
+            padding: 0;
+            margin: 0;
+        }
+    }
 }

@@ -1,5 +1,61 @@
 .page-three {
     height: 100vh;
-    background-color: gold;
+    background: url("../../assets/images/newmain3.994c2786.png");
+    user-select: none;
     width: 100%;
+    .page-three-container {
+        top: 0;
+        position: absolute;
+        width: 70%;
+        color: #fff;
+        text-align: left;
+        height: 100%;
+        position: relative;
+        left: -3%;
+        right: 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        z-index: 5;
+    }
+    &-content {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        .item {
+            height: 100%;
+            width: calc(100% / 4);
+            transition: all 0.2s !important;
+            padding: 0 30px;
+            &-content {
+                margin-top: 30vh;
+                .title {
+                    width: 100%;
+                    margin-bottom: 5vh;
+                    word-break: keep-all;
+                    font-size: 30px;
+                    font-family: "Montserrat";
+                    font-weight: 700;
+                }
+                .desc {
+                    opacity: 0;
+                    font-size: 14px;
+                    line-height: 27px;
+                    font-family: "Noto Sans KR";
+                    font-weight: 100;
+                }
+            }
+            &:hover {
+                width: 40%;
+                background-color: rgba(77, 74, 73, 0.44);
+                .desc {
+                    opacity: 1;
+                }
+            }
+        }
+        .item + .item {
+            border-left: 1px solid rgba(255, 255, 255, 0.32);
+        }
+    }
 }
