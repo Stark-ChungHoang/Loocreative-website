@@ -159,9 +159,7 @@ function App() {
             window.scroll(0, 0);
             handleActiveMenuNav("firstPage");
           }}
-        >
-          {" "}
-        </div>
+        ></div>
         <div
           data-page="secondPage"
           onClick={() => {
@@ -172,9 +170,7 @@ function App() {
               handleActiveMenuNav("secondPage");
             }
           }}
-        >
-          {" "}
-        </div>
+        ></div>
         <div
           data-page="thirdPage"
           onClick={() => {
@@ -185,9 +181,7 @@ function App() {
               handleActiveMenuNav("thirdPage");
             }
           }}
-        >
-          {" "}
-        </div>
+        ></div>
         <div
           data-page="fourthPage"
           onClick={() => {
@@ -198,9 +192,7 @@ function App() {
               handleActiveMenuNav("fourthPage");
             }
           }}
-        >
-          {" "}
-        </div>
+        ></div>
         <div
           data-page="fifthPage"
           onClick={() => {
@@ -211,9 +203,7 @@ function App() {
               handleActiveMenuNav("fifthPage");
             }
           }}
-        >
-          {" "}
-        </div>
+        ></div>
       </nav>
 
       <NavBar />
