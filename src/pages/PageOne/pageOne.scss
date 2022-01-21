@@ -1,5 +1,310 @@
 .page-one {
-    height: 100vh;
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+
+  * {
+    transition: all 0.2s;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &-content {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
     width: 100%;
-    background-color: beige;
+    color: #fff;
+    text-align: left;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 5;
+
+    .inner-content {
+      width: 100%;
+      height: auto;
+
+      .logo {
+        position: relative;
+        top: 60px;
+      }
+
+      .first_ {
+        width: 100%;
+        height: 100%;
+        margin-left: 10%;
+        .md-text {
+          margin-top: 30px;
+          font-size: 90px;
+          font-weight: 100;
+          line-height: 92px;
+          transition: all 0.2s;
+        }
+
+        .portfolio {
+          transition: all 0.2s;
+          width: 0px;
+          height: 50px;
+          margin-top: 20px;
+          margin-left: 3px;
+          // color: $mainColor;
+          // background: $mainColor;
+          margin-bottom: 50px;
+          cursor: pointer;
+          font-family: "Montserrat-Regular";
+
+          .contents {
+            font-size: 40px;
+            display: flex;
+            width: 300px;
+            padding: 0 50px 0 0;
+            // box-sizing: border-box;
+            position: relative;
+            z-index: 6;
+            color: #9c9c9c;
+            transition: all 0.2s;
+
+            span {
+              line-height: 50px;
+              font-size: 60px;
+              transition: all 0.2s;
+              position: absolute;
+              right: -50px;
+              top: 0;
+            }
+          }
+
+          &:hover {
+            color: white;
+            .hoverContents {
+              // width: 140%;
+
+              span {
+                opacity: 1;
+              }
+            }
+
+            .contents {
+              color: white;
+            }
+          }
+        }
+        .bold_text {
+          font-family: "Montserrat-Bold";
+        }
+
+        .time-text {
+          font-size: 26px;
+          font-weight: 100;
+          line-height: 90px;
+
+          span {
+            font-size: 16px;
+            font-family: "Montserrat-Medium";
+          }
+
+          .time-num {
+            font-size: 150px;
+            font-weight: 100;
+            font-family: Montserrat-Thin;
+          }
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .first_ {
+          .portfolio {
+            margin-bottom: 50px;
+            .contents {
+              font-size: 30px;
+              span {
+                line-height: 40px;
+                font-size: 60px;
+                right: -90px;
+              }
+            }
+          }
+
+          .md-text {
+            margin-top: 50px;
+            font-size: 70px;
+            line-height: 70px;
+          }
+
+          .time-text {
+            line-height: 50px;
+
+            span {
+              width: 300px;
+              font-size: 30px;
+              display: flex;
+            }
+            .time-num {
+              display: none;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        .first_ {
+          .portfolio {
+            .contents {
+              font-size: 40px;
+            }
+            span {
+              line-height: 50px !important;
+              font-size: 60px;
+              right: -90px;
+            }
+          }
+          .logo {
+            max-width: 100px;
+            top: 10px;
+            > img {
+              width: 100%;
+            }
+          }
+
+          .md-text {
+            font-size: 50px;
+            line-height: 50px;
+          }
+
+          .time-text {
+            line-height: 60px;
+
+            span {
+              font-size: 30px;
+              display: flex;
+            }
+            .time-num {
+              display: none;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 568px) {
+        .first_ {
+          .portfolio {
+            .contents {
+              font-size: 20px;
+              padding: 10px 0;
+              padding-right: 50px;
+              box-sizing: border-box;
+              span {
+                line-height: 45px !important;
+                font-size: 60px;
+                right: -60px;
+              }
+            }
+          }
+
+          .md-text {
+            font-size: 40px;
+            line-height: 40px;
+          }
+
+          .time-text {
+            font-size: 20px;
+            line-height: 50px;
+
+            span {
+              width: 300px;
+              font-size: 30px;
+              display: flex;
+            }
+            .time-num {
+              display: none;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 400px) {
+        .first_ {
+          .portfolio {
+            .contents {
+              font-size: 20px;
+              padding: 10px 0;
+              padding-right: 50px;
+              box-sizing: border-box;
+              span {
+                line-height: 45px !important;
+                font-size: 60px;
+                right: -60px;
+              }
+            }
+          }
+
+          .md-text {
+            font-size: 30px;
+            line-height: 30px;
+          }
+
+          .time-text {
+            font-size: 20px;
+            line-height: 50px;
+
+            span {
+              width: 300px;
+              font-size: 30px;
+              display: flex;
+            }
+            .time-num {
+              display: none;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 320px) {
+        .first_ {
+          .portfolio {
+            margin-left: -10px;
+            .contents {
+              font-size: 20px;
+            }
+          }
+
+          .md-text {
+            font-size: 30px;
+            line-height: 30px;
+            margin-left: -10px;
+          }
+
+          .time-text {
+            font-size: 15px;
+            line-height: 30px;
+
+            span {
+              width: 300px;
+              font-size: 30px;
+              display: flex;
+            }
+            .time-num {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes animation01 {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
