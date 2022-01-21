@@ -2,4 +2,30 @@
     height: 100vh;
     width: 100%;
     background-color: beige;
+    h1 {
+        padding-top: 150px;
+        font-size: 42px;
+        font-weight: bold;
+        text-align: center;
+        visibility: hidden;
+    }
+    .list {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        &-items {
+            width: 25%;
+            border-right: 1px solid #333;
+            padding-left: 10px;
+            height: 300px;
+            visibility: hidden;
+            h5 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
+
 }
