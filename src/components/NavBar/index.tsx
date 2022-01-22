@@ -21,6 +21,12 @@ const menu = [
   },
 ];
 
+const contact = {
+  adress: "서울특별시 강남구 도산대로 8길 17-10 이리스빌딩 1F",
+  tell: "Tel 02. 543. 4983 / Fax 02. 6280. 4079",
+  email: "loocreative@playlooc.com",
+};
+
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const { pathname } = useLocation();
@@ -66,9 +72,9 @@ const NavBar = () => {
             ))}
             <div className="infoWrapper">
               <p id="adress">
-                서울특별시 강남구 도산대로 8길 17-10 이리스빌딩 1F
+                {contact.adress}
                 <br />
-                Tel 02. 543. 4983 / Fax 02. 6280. 4079
+                {contact.tell}
               </p>
               <p className="link">
                 <a href="/" target="blank">
@@ -78,15 +84,15 @@ const NavBar = () => {
               <br />
               <p>Work with us.</p>
               <p className="link">
-                <a href="mailto:loocreative@playlooc.com" title="">
-                  loocreative@playlooc.com
+                <a href={`mailto:${contact.email}`} title="">
+                  {contact.email}
                 </a>
               </p>
               <br />
               <p>Recruiting</p>
               <p className="link">
-                <a href="mailto:loocreative@playlooc.com" title="">
-                  loocreative@playlooc.com
+                <a href={`mailto:${contact.email}`} title="">
+                  {contact.email}
                 </a>
               </p>
             </div>

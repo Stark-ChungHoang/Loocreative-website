@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/all";
-import "./App.css";
 import {
   PageOne,
   PageTwo,
