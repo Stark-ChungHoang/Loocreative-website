@@ -20,7 +20,7 @@
             line-height: 24px;
             color: #fff;
             cursor: text;
-            font-family: "Montserrat";
+            font-family: "Montserrat-Medium";
             padding: 0;
             margin: 0;
         }
@@ -44,6 +44,31 @@
             font-family: "Montserrat";
             padding: 0;
             margin: 0;
+            @media (max-width: 1750px) {
+                font-size: 100px;
+            }
+            @media (max-width: 1540px) {
+                font-size: 80px;
+                line-height: 7.5rem;
+            }
+            @media (max-width: 1340px) {
+                font-size: 60px;
+                line-height: 5.5rem;
+            }
+            @media (max-width: 988px) {
+                font-size: 50px;
+                line-height: 4.5rem;
+            }
+            @media (max-width: 830px) {
+                font-size: 35px;
+                line-height: 3.5rem;
+            }
+            @media (max-width: 687px) {
+                font-size: 22px;
+            }
+            @media (max-width: 484px) {
+                font-size: 19px;
+            }
         }
     }
 }
