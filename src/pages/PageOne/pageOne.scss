@@ -1,9 +1,31 @@
+$mainColor: #000000;
+$subColor: #e7e7e7;
+
 .page-one {
   height: 100vh;
   width: 100%;
   background-color: #000;
   color: #fff;
   overflow: hidden;
+  .BackgroundVideo {
+    opacity: 0.8;
+  }
+  .logo {
+    position: relative;
+    top: 60px;
+  }
+  .Back {
+    pointer-events: none;
+    width: 100vw;
+    height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+    min-height: 100vh;
+    min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+  }
 
   * {
     transition: all 0.2s;
@@ -47,6 +69,7 @@
           font-weight: 100;
           line-height: 92px;
           transition: all 0.2s;
+          position: relative;
         }
 
         .portfolio {
@@ -55,8 +78,8 @@
           height: 50px;
           margin-top: 20px;
           margin-left: 3px;
-          // color: $mainColor;
-          // background: $mainColor;
+          color: $mainColor;
+          background: $mainColor;
           margin-bottom: 50px;
           cursor: pointer;
           font-family: "Montserrat-Regular";
@@ -105,6 +128,7 @@
           font-size: 26px;
           font-weight: 100;
           line-height: 90px;
+          position: relative;
 
           span {
             font-size: 16px;

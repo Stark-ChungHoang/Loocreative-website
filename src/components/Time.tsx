@@ -8,7 +8,7 @@ interface TimeProps {
 }
 
 const Time: React.FC<TimeProps> = ({ getTime }) => {
-  const [time, setTime] = useState(new Date().toLocaleString());
+  const [time, setTime] = useState(moment(new Date()).format("HH:mm:ss"));
 
   const tick = () => {
     setInterval(() => {

@@ -29,10 +29,15 @@ const contact = {
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [language, setLanguage] = useState("ko");
   const { pathname } = useLocation();
 
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
+  };
+
+  const handleLanguage = (lang: string) => {
+    setLanguage(lang);
   };
 
   return (
@@ -40,8 +45,18 @@ const NavBar = () => {
       <nav role="navigation">
         <div id="menuToggle">
           <div className="changeLangWrapper">
-            <div className="changeLang select">KR</div>
-            <div className="changeLang en">EN</div>
+            <div
+              onClick={() => handleLanguage("ko")}
+              className={`changeLang ${language === "ko" ? "select" : ""}`}
+            >
+              KR
+            </div>
+            <div
+              onClick={() => handleLanguage("en")}
+              className={`changeLang en ${language === "en" ? "select" : ""}`}
+            >
+              EN
+            </div>
           </div>
           <div
             className={`${openMenu ? "btn-toggle open" : "btn-toggle"}`}
@@ -53,8 +68,22 @@ const NavBar = () => {
           </div>
           <ul id="menu" className={`${openMenu ? "open" : ""}`}>
             <div className="changeLangWrapperMenu">
-              <div className="changeLangMemnu ko select">KR</div>
-              <div className="changeLangMemnu en">EN</div>
+              <div
+                onClick={() => handleLanguage("ko")}
+                className={`changeLangMemnu ko ${
+                  language === "ko" ? "select" : ""
+                }`}
+              >
+                KR
+              </div>
+              <div
+                onClick={() => handleLanguage("en")}
+                className={`changeLangMemnu en ${
+                  language === "en" ? "select" : ""
+                }`}
+              >
+                EN
+              </div>
             </div>
             {menu.map((val, key) => (
               <a
