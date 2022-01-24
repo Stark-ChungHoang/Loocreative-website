@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import "./style.scss";
 
@@ -29,15 +30,15 @@ const contact = {
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [language, setLanguage] = useState("ko");
   const { pathname } = useLocation();
-
+  const { i18n } = useTranslation();
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };
 
   const handleLanguage = (lang: string) => {
-    setLanguage(lang);
+    i18n.changeLanguage(lang);
+    console.log(lang);
   };
 
   return (
@@ -47,13 +48,14 @@ const NavBar = () => {
           <div className="changeLangWrapper">
             <div
               onClick={() => handleLanguage("ko")}
-              className={`changeLang ${language === "ko" ? "select" : ""}`}
+              className={`changeLang ${i18n.language === "ko" ? "select" : ""}`}
             >
               KR
             </div>
             <div
               onClick={() => handleLanguage("en")}
-              className={`changeLang en ${language === "en" ? "select" : ""}`}
+              className={`changeLang en ${i18n.language === "en" ? "select" : ""
+                }`}
             >
               EN
             </div>
@@ -70,17 +72,15 @@ const NavBar = () => {
             <div className="changeLangWrapperMenu">
               <div
                 onClick={() => handleLanguage("ko")}
-                className={`changeLangMemnu ko ${
-                  language === "ko" ? "select" : ""
-                }`}
+                className={`changeLangMemnu ko ${i18n.language === "ko" ? "select" : ""
+                  }`}
               >
                 KR
               </div>
               <div
                 onClick={() => handleLanguage("en")}
-                className={`changeLangMemnu en ${
-                  language === "en" ? "select" : ""
-                }`}
+                className={`changeLangMemnu en ${i18n.language === "en" ? "select" : ""
+                  }`}
               >
                 EN
               </div>
@@ -89,11 +89,10 @@ const NavBar = () => {
               <a
                 key={key}
                 onClick={handleToggleMenu}
-                className={`list ${
-                  pathname.toLowerCase() === val.path.toLowerCase()
-                    ? "select"
-                    : ""
-                }`}
+                className={`list ${pathname.toLowerCase() === val.path.toLowerCase()
+                  ? "select"
+                  : ""
+                  }`}
                 href={val.path}
               >
                 <li>{val.display}</li>

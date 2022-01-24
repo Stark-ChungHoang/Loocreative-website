@@ -1,11 +1,12 @@
-import { useState,useEffect } from "react";
-import Time from "../../components/Time";
+
+import {useEffect } from "react";
 import "./pageOne.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import UrlLogo from "../../assets/images/logo.png";
+import Time from "../../../components/Time";
+import "./pageOne.scss";
+import UrlLogo from "../../../assets/images/logo.png";
 gsap.registerPlugin(ScrollTrigger);
-
 const UrlBackground =
   "https://player.vimeo.com/video/661908910?&amp;autoplay=1&amp;background=1&amp;loop=1&amp;byline=0&amp;title=0";
 
