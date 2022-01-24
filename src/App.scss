@@ -1,0 +1,60 @@
+
+.menu_nav {
+	position: fixed;
+	top: 50%;
+	z-index: 5;
+	transform: translateY(-50%);
+	right: 100px;
+	text-align: right;
+}
+@media screen and (max-width: 840px) {
+	.menu_nav {
+		right: 50px;
+	}
+}
+.menu_nav button {
+	position: relative;
+	display: block;
+	margin: 7px 0;
+	transition: all 0.2s;
+	right: 0;
+	width: 7px;
+	height: 7px;
+	background-color: #fff;
+	cursor: pointer;
+	border-color: transparent !important;
+	padding: 0;
+	border-width: 0;
+}
+.menu_nav button::before {
+	content: "";
+	position: absolute;
+	transition: all 0.5s;
+	z-index: 0;
+	top:0;
+	right: 0;
+	width: 7px;
+	height: 7px;
+	background-color: #fff;
+}
+.menu_nav button:hover:before {
+	width: 30px;
+}
+
+.menu_nav button.active {
+	background-color: #000;
+}
+
+.menu_nav .active:before {
+	background-color: #000;
+	width: 25px;
+}
+
+@media screen and (max-width: 840px) {
+	.menu_nav .active:before {
+		width: 10px;
+	}
+	.menu_nav button:hover:before {
+		width: 10px;
+	}
+}

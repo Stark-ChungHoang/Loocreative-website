@@ -1,8 +1,9 @@
-import { ElementRef, useEffect, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/all";
+import "./App.scss";
 import {
   PageOne,
   PageTwo,
@@ -11,98 +12,122 @@ import {
   PageFive,
 } from "./pages/index";
 import NavBar from "./components/NavBar";
-import MenuNav from "./components/MenuNav";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 function App() {
-  // history v6
+  // set change URL khen scrolling
   let navigate = useNavigate();
-
-  //function scroll to section
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const scrolling = {
-      enabled: true,
-      events: "scroll,wheel,touchmove,pointermove".split(","),
-      prevent: (e: any) => e.preventDefault(),
-      disable() {
-        if (scrolling.enabled) {
-          scrolling.enabled = false;
-          window.addEventListener("scroll", gsap.ticker.tick, {
-            passive: true,
-          });
-          scrolling.events.forEach((e, i) =>
-            (i ? document : window).addEventListener(e, scrolling.prevent, {
-              passive: false,
-            })
-          );
-        }
-      },
-      enable() {
-        if (!scrolling.enabled) {
-          scrolling.enabled = true;
-          window.removeEventListener("scroll", gsap.ticker.tick);
-          scrolling.events.forEach((e, i) =>
-            (i ? document : window).removeEventListener(e, scrolling.prevent)
-          );
-        }
-      },
-    };
-    function goToSection(section: any, anim: any) {
-      if (scrolling.enabled) {
-        // skip if a scroll tween is in progress
-        scrolling.disable();
-        gsap.to(window, {
-          scrollTo: { y: section, autoKill: false },
-          onComplete: scrolling.enable,
-          duration: 1,
-        });
-
-        anim && anim.restart();
-      }
+  const [activeUrl, setActiveUrl] = useState<Number>(0);
+  const handleUrl = () => {
+    switch (activeUrl) {
+      case 0:
+        navigate("#firstPage");
+        break;
+      case 1:
+        navigate("#secondPage");
+        break;
+      case 2:
+        navigate("#thirdPage");
+        break;
+      case 3:
+        navigate("#fourthPage");
+        break;
+      case 4:
+        navigate("#fifthPage");
+        break;
     }
+  };
+  useEffect(() => {
+    console.log(activeUrl);
 
-    sections.forEach((section, i) => {
-      const intoAnim = gsap.from(section.querySelector(".right-col"), {
-        yPercent: 50,
-        duration: 1,
-        paused: true,
-      });
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top bottom-=1",
-        end: "bottom top+=1",
-        onEnter: () => {
-          goToSection(section, intoAnim);
+    handleUrl();
+  }, [activeUrl]);
+
+  //set up animation scroll to section
+  useEffect(() => {
+    var settingUp = true;
+    function goToSection(i: number) {
+      gsap.set("body", { overflow: "hidden" });
+
+      gsap.to("body", {
+        scrollTo: { y: i * window.innerHeight, autoKill: false },
+        duration: 0.4,
+        onComplete: () => {
+          gsap.set("body", { overflow: "auto" });
+          buttonClicked = false;
+          setActiveUrl(i);
         },
-        onEnterBack: () => {
-          goToSection(section, intoAnim);
-        },
       });
+    }
+    var buttonClicked = false;
+    const instances = [];
+    gsap.utils.toArray("section").forEach((panel: any, i: any) => {
+      instances.push(
+        ScrollTrigger.create({
+          trigger: panel,
+          onEnter: () => {
+            if (!buttonClicked && !settingUp) {
+              goToSection(i);
+            }
+          },
+        })
+      );
+
+      instances.push(
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "bottom bottom",
+          onEnterBack: () => {
+            if (!buttonClicked && !settingUp) {
+              goToSection(i);
+            }
+          },
+        })
+      );
     });
+    // set up function for menu_nav
+    gsap.utils.toArray("button").forEach((btn: any, i: any) => {
+      btn.onclick = () => {
+        if (!buttonClicked) {
+          buttonClicked = true;
+          goToSection(i);
+        }
+      };
+    });
+    settingUp = false;
   }, []);
 
-
+  //variable for array menu_nav
+  let array: any[];
+  array = Array(5).fill(0);
   return (
     <>
-      <section id="page-one">
+      <section>
         <PageOne />
       </section>
-      <section id="page-two">
+      <section>
         <PageTwo />
       </section>
-      <section id="page-three">
+      <section>
         <PageThree />
       </section>
-      <section id="page-four">
+      <section>
         <PageFourth />
       </section>
-      <section id="page-five">
+      <section>
         <PageFive />
       </section>
-      <MenuNav />
-
+      <nav className="menu_nav">
+        {array.map((item, index) => (
+          <button
+            key={index + item}
+            className={`${
+              activeUrl === index ? "active buttonNav" : "buttonNav"
+            }`}
+          ></button>
+        ))}
+      </nav>
       <NavBar />
     </>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./assets/styles/index.css";
-import "./assets/styles/fontFace.css";
+import "./assets/styles/index.scss";
+import "./assets/styles/fontFace.scss";
 import "./assets/styles/utils.scss";
 import App from "./App";
-import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
