@@ -119,8 +119,9 @@ function Home() {
         {array.map((item, index) => (
           <button
             key={index + item}
-            className={`${activeUrl === index ? "active buttonNav" : "buttonNav"
-              }`}
+            className={`${
+              activeUrl === index ? "active buttonNav" : "buttonNav"
+            }`}
           ></button>
         ))}
       </nav>
