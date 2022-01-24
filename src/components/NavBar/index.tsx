@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./style.scss";
+import i18n from "../../i18n/i18n";
 
 const menu = [
   {
@@ -29,7 +30,6 @@ const contact = {
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [language, setLanguage] = useState("ko");
   const { pathname } = useLocation();
 
   const handleToggleMenu = () => {
@@ -37,7 +37,8 @@ const NavBar = () => {
   };
 
   const handleLanguage = (lang: string) => {
-    setLanguage(lang);
+    i18n.changeLanguage(lang);
+    console.log(lang);
   };
 
   return (
@@ -47,13 +48,15 @@ const NavBar = () => {
           <div className="changeLangWrapper">
             <div
               onClick={() => handleLanguage("ko")}
-              className={`changeLang ${language === "ko" ? "select" : ""}`}
+              className={`changeLang ${i18n.language === "ko" ? "select" : ""}`}
             >
               KR
             </div>
             <div
               onClick={() => handleLanguage("en")}
-              className={`changeLang en ${language === "en" ? "select" : ""}`}
+              className={`changeLang en ${
+                i18n.language === "en" ? "select" : ""
+              }`}
             >
               EN
             </div>
@@ -71,7 +74,7 @@ const NavBar = () => {
               <div
                 onClick={() => handleLanguage("ko")}
                 className={`changeLangMemnu ko ${
-                  language === "ko" ? "select" : ""
+                  i18n.language === "ko" ? "select" : ""
                 }`}
               >
                 KR
@@ -79,7 +82,7 @@ const NavBar = () => {
               <div
                 onClick={() => handleLanguage("en")}
                 className={`changeLangMemnu en ${
-                  language === "en" ? "select" : ""
+                  i18n.language === "en" ? "select" : ""
                 }`}
               >
                 EN
