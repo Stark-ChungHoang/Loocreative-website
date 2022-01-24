@@ -1,5 +1,9 @@
 {
   "navbar": {
     "address": "17-10, Dosan-daero 8-gil, Gangnam-gu, Republic of Korea 1F"
+  },
+  "contact": {
+    "address": "Gangnam-gu, Seoul",
+    "district": "Dosan-daero 8-gil 17-10 1F"
   }
 }
