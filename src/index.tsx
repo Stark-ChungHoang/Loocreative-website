@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/styles/index.scss";
 import "./assets/styles/fontFace.scss";
@@ -12,9 +12,7 @@ import "./i18n/i18n";
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <Suspense fallback="...loading">
-        <App />
-      </Suspense>
+      <App />
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById("root")

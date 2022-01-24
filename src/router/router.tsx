@@ -1,8 +1,8 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Contact from "../pages/Contanct";
-import Home from "../pages/Home/index";
 
+const Home = lazy(() => import("../pages/Home/index"));
+const Contact = lazy(() => import("../pages/Contanct"));
 const router = () => {
   return (
     <Routes>

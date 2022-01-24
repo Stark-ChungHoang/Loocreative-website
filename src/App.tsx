@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import NavBar from "./components/NavBar";
 import Router from "./router/router";
 
 const App = () => {
   return (
     <React.Fragment>
-      <Router />
-      <NavBar />
-    </React.Fragment>
+      <Suspense fallback="...">
+        <Router />
+        <NavBar />
+      </Suspense>
+    </React.Fragment >
   );
 };
 
