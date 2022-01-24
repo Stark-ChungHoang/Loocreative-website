@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Time from "../../components/Time";
+import Time from "../../../components/Time";
 import "./pageOne.scss";
-import UrlLogo from "../../assets/images/logo.png";
+import UrlLogo from "../../../assets/images/logo.png";
 const UrlBackground =
   "https://player.vimeo.com/video/661908910?&amp;autoplay=1&amp;background=1&amp;loop=1&amp;byline=0&amp;title=0";
 
