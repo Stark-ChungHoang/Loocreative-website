@@ -2,6 +2,22 @@
   "navbar": {
     "address": "17-10, Dosan-daero 8-gil, Gangnam-gu, Republic of Korea 1F"
   },
+  "home": {
+    "thirdPage": {
+      "motion": {
+        "text": "Our company provided all the appliances in need, as well as VFX, social advertising design, artwork, game development, technology, and output. In addition, we also deduce motion graphics with subtitles, dynamic typography, animation, and images composed of CG (computer graphics)."
+      },
+      "design": {
+        "text": "Our company experiences conducting brand design with various companies, including UI/UX, branding, editing, graphics, industrial design, and maintenance of new media, company, social, and marketing design. In addition, we will coordinate with customers and try our best to compromise the business needs and achieve the goal."
+      },
+      "develop": {
+        "text": "The development area was recognized for its diversity through the verification of the stability stage. The development team, who always concerned about the stability of the development. Moreover, they try their best to develop their own platforms through collaborations between them and companies."
+      },
+      "culture": {
+        "text": "We understand the society needs their own label/keyword of the culture to share their communication. This has become part of their strength in their lives. Moreover, we realized connect people with cultural projects will bring happiness to everyone. Therefore, Loocreative tries to create various cultural events such as music and seminars to reach out to people."
+      }
+    }
+  },
   "contact": {
     "address": "Gangnam-gu, Seoul",
     "district": "Dosan-daero 8-gil 17-10 1F"

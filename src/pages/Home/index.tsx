@@ -43,6 +43,8 @@ function Home() {
   //set up animation scroll to section
   useEffect(() => {
     var settingUp = true;
+    var buttonClicked = false;
+
     function goToSection(i: number) {
       gsap.set("body", { overflow: "hidden" });
 
@@ -56,7 +58,6 @@ function Home() {
         },
       });
     }
-    var buttonClicked = false;
     const instances = [];
     gsap.utils.toArray("section").forEach((panel: any, i: any) => {
       instances.push(
@@ -118,9 +119,8 @@ function Home() {
         {array.map((item, index) => (
           <button
             key={index + item}
-            className={`${
-              activeUrl === index ? "active buttonNav" : "buttonNav"
-            }`}
+            className={`${activeUrl === index ? "active buttonNav" : "buttonNav"
+              }`}
           ></button>
         ))}
       </nav>

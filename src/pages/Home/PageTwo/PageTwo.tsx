@@ -1,10 +1,10 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import './pageTwo.scss';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 function PageTwo() {
-    useEffect(()=> {
+    useEffect(() => {
         const title = document.querySelector('.par_one');
         const text = document.querySelector('.text_wr');
         const revealAnim = () => {
@@ -12,22 +12,22 @@ function PageTwo() {
                 scrollTrigger: {
                     trigger: ".page-two",
                     start: "top top+=5",
-                     end: "bottom bottom-=50",
+                    end: "bottom bottom-=50",
                     toggleActions: "restart reverse restart reverse",
                 }
             });
             TLFade
-            .from(title, {
-                autoAlpha: 0,
-                y: -20 ,
-                duration:.6,
-                ease: "power4.out",
-               },"-=0.1")
-            .from(text,{autoAlpha: 0, x: -380,duration:1,ease: "power2.out"})
-        }
-      
-     revealAnim()
-       },[])
+                .from(title, {
+                    autoAlpha: 0,
+                    y: -20,
+                    duration: .6,
+                    ease: "power4.out",
+                }, "-=0.1")
+                .from(text, { autoAlpha: 0, x: -380, duration: 1, ease: "power2.out" });
+        };
+
+        revealAnim();
+    }, []);
     return (
         <div className="page-two">
             <div className="page-two-content">
