@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 const menu = [
@@ -31,7 +32,7 @@ const contact = {
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const { pathname } = useLocation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };
@@ -54,8 +55,9 @@ const NavBar = () => {
             </div>
             <div
               onClick={() => handleLanguage("en")}
-              className={`changeLang en ${i18n.language === "en" ? "select" : ""
-                }`}
+              className={`changeLang en ${
+                i18n.language === "en" ? "select" : ""
+              }`}
             >
               EN
             </div>
@@ -72,35 +74,38 @@ const NavBar = () => {
             <div className="changeLangWrapperMenu">
               <div
                 onClick={() => handleLanguage("ko")}
-                className={`changeLangMemnu ko ${i18n.language === "ko" ? "select" : ""
-                  }`}
+                className={`changeLangMemnu ko ${
+                  i18n.language === "ko" ? "select" : ""
+                }`}
               >
                 KR
               </div>
               <div
                 onClick={() => handleLanguage("en")}
-                className={`changeLangMemnu en ${i18n.language === "en" ? "select" : ""
-                  }`}
+                className={`changeLangMemnu en ${
+                  i18n.language === "en" ? "select" : ""
+                }`}
               >
                 EN
               </div>
             </div>
             {menu.map((val, key) => (
-              <a
+              <Link
                 key={key}
                 onClick={handleToggleMenu}
-                className={`list ${pathname.toLowerCase() === val.path.toLowerCase()
-                  ? "select"
-                  : ""
-                  }`}
-                href={val.path}
+                className={`list ${
+                  pathname.toLowerCase() === val.path.toLowerCase()
+                    ? "select"
+                    : ""
+                }`}
+                to={val.path}
               >
                 <li>{val.display}</li>
-              </a>
+              </Link>
             ))}
             <div className="infoWrapper">
               <p id="adress">
-                {contact.adress}
+                {t("navbar.address")}
                 <br />
                 {contact.tell}
               </p>
