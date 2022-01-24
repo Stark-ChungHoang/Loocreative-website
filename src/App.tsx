@@ -1,9 +1,10 @@
-import { ElementRef, useEffect, useMemo } from "react";
+// eslint-disable-next-line no-restricted-globals
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/all";
-import "./App.css";
+import "./App.scss";
 import {
   PageOne,
   PageTwo,
@@ -15,176 +16,118 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 function App() {
-  // history v6
+  // set change URL khen scrolling
   let navigate = useNavigate();
-
-  //function scroll to section
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const scrolling = {
-      enabled: true,
-      events: "scroll,wheel,touchmove,pointermove".split(","),
-      prevent: (e: any) => e.preventDefault(),
-      disable() {
-        if (scrolling.enabled) {
-          scrolling.enabled = false;
-          window.addEventListener("scroll", gsap.ticker.tick, {
-            passive: true,
-          });
-          scrolling.events.forEach((e, i) =>
-            (i ? document : window).addEventListener(e, scrolling.prevent, {
-              passive: false,
-            })
-          );
-        }
-      },
-      enable() {
-        if (!scrolling.enabled) {
-          scrolling.enabled = true;
-          window.removeEventListener("scroll", gsap.ticker.tick);
-          scrolling.events.forEach((e, i) =>
-            (i ? document : window).removeEventListener(e, scrolling.prevent)
-          );
-        }
-      },
-    };
-    function goToSection(section: any, anim: any) {
-      if (scrolling.enabled) {
-        // skip if a scroll tween is in progress
-        scrolling.disable();
-        gsap.to(window, {
-          scrollTo: { y: section, autoKill: false },
-          onComplete: scrolling.enable,
-          duration: 1,
-        });
-
-        anim && anim.restart();
-      }
-    }
-
-    sections.forEach((section, i) => {
-      const intoAnim = gsap.from(section.querySelector(".right-col"), {
-        yPercent: 50,
-        duration: 1,
-        paused: true,
-      });
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top bottom-=1",
-        end: "bottom top+=1",
-        onEnter: () => {
-          goToSection(section, intoAnim);
-        },
-        onEnterBack: () => {
-          goToSection(section, intoAnim);
-        },
-      });
-    });
-  }, []);
-  const handleActiveMenuNav = (dataPage: string) => {
-    const listNav = document.querySelectorAll<HTMLElement>(".menu_nav > div");
-    const listNavArray = Array.from(listNav);
-    listNavArray.forEach((item) => {
-      if (item.getAttribute("data-page") === dataPage) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
-      }
-    });
-  };
-
-  const handleScroll = (e: Event) => {
-    const scrollY = window.scrollY;
-    const pageTwoOffset = document.querySelector<HTMLElement>("#page-two")?.offsetTop;
-    const pageThreeOffset = document.querySelector<HTMLElement>("#page-three")?.offsetTop;
-    const pageFourOffset = document.querySelector<HTMLElement>("#page-four")?.offsetTop;
-    const pageFiveOffset = document.querySelector<HTMLElement>("#page-five")?.offsetTop;
-    if (pageTwoOffset && pageThreeOffset && pageFourOffset && pageFiveOffset) {
-      if (scrollY < pageTwoOffset) {
-        window.location.hash = "#firstPage";
-        handleActiveMenuNav("firstPage");
-      } else if (scrollY < pageThreeOffset) {
-        handleActiveMenuNav("secondPage");
-        window.location.hash = "#secondPage";
-      } else if (scrollY < pageFourOffset) {
-        window.location.hash = "#thirdPage";
-        handleActiveMenuNav("thirdPage");
-      } else if (scrollY < pageFiveOffset) {
-        handleActiveMenuNav("fourthPage");
-        window.location.hash = "#fourthPage";
-      } else if (scrollY >= pageFiveOffset) {
-        handleActiveMenuNav("fifthPage");
-        window.location.hash = "#fifthPage";
-      }
+  const [activeUrl, setActiveUrl] = useState<Number>(0);
+  const handleUrl = () => {
+    switch (activeUrl) {
+      case 0:
+        navigate("#firstPage");
+        break;
+      case 1:
+        navigate("#secondPage");
+        break;
+      case 2:
+        navigate("#thirdPage");
+        break;
+      case 3:
+        navigate("#fourthPage");
+        break;
+      case 4:
+        navigate("#fifthPage");
+        break;
     }
   };
-  const handleScrollMemo = useMemo(() => handleScroll, []);
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScrollMemo);
+    console.log(activeUrl);
+    
+    handleUrl();
+  }, [activeUrl]);
 
+  //set up animation scroll to section
+  useEffect(() => {
+    var settingUp = true;
+    function goToSection(i: number) {
+      gsap.set("body", { overflow: "hidden" });
+
+      gsap.to("body", {
+        scrollTo: { y: i * window.innerHeight, autoKill: false },
+        duration: 0.4,
+        onComplete: () => {
+          gsap.set("body", { overflow: "auto" });
+          buttonClicked = false;
+          setActiveUrl(i);
+        },
+      });
+    }
+    var buttonClicked = false;
+    const instances = [];
+    gsap.utils.toArray("section").forEach((panel: any, i: any) => {
+      instances.push(
+        ScrollTrigger.create({
+          trigger: panel,
+          onEnter: () => {
+            if (!buttonClicked && !settingUp) {
+              goToSection(i);
+            }
+          },
+        })
+      );
+
+      instances.push(
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "bottom bottom",
+          onEnterBack: () => {
+            if (!buttonClicked && !settingUp) {
+              goToSection(i);
+            }
+          },
+        })
+      );
+    });
+    // set up function for menu_nav
+    gsap.utils.toArray("button").forEach((btn: any, i: any) => {
+      btn.onclick = () => {
+        if (!buttonClicked) {
+          buttonClicked = true;
+          goToSection(i);
+        }
+      };
+    });
+    settingUp = false;
   }, []);
 
-  useEffect(() => {
-    return () => {
-      window.removeEventListener("scroll", handleScrollMemo);
-    };
-  }, []);
-
-
-
+  //variable for array menu_nav
+  let array: any[];
+  array = Array(5).fill(0);
   return (
     <>
-      <section id="page-one">
-        <PageOne />
+
+      <section>
+        <PageOne/>
       </section>
-      <section id="page-two">
+      <section>
         <PageTwo />
       </section>
-      <section id="page-three">
+      <section>
         <PageThree />
       </section>
-      <section id="page-four">
+      <section>
         <PageFourth />
       </section>
-      <section id="page-five">
+      <section>
         <PageFive />
       </section>
       <nav className="menu_nav">
-        <div data-page="firstPage" onClick={() => {
-          window.scroll(0, 0);
-          handleActiveMenuNav("firstPage");
-        }} > </div>
-        <div data-page="secondPage" onClick={() => {
-          const pageTwoOffset = document.querySelector<HTMLElement>("#page-two")?.offsetTop;
-          if (pageTwoOffset) {
-            window.scroll(0, pageTwoOffset);
-            handleActiveMenuNav("secondPage");
-          }
-        }} > </div>
-        <div data-page="thirdPage" onClick={() => {
-          const pageThreeOffset = document.querySelector<HTMLElement>("#page-three")?.offsetTop;
-          if (pageThreeOffset) {
-            window.scroll(0, pageThreeOffset);
-            handleActiveMenuNav("thirdPage");
-          }
-        }} > </div>
-        <div data-page="fourthPage" onClick={() => {
-          const pageFourOffset = document.querySelector<HTMLElement>("#page-four")?.offsetTop;
-          if (pageFourOffset) {
-            window.scroll(0, pageFourOffset);
-            handleActiveMenuNav("fourthPage");
-          }
-        }} > </div>
-        <div data-page="fifthPage" onClick={() => {
-          const pageFiveOffset = document.querySelector<HTMLElement>("#page-five")?.offsetTop;
-          if (pageFiveOffset) {
-            window.scroll(0, pageFiveOffset);
-            handleActiveMenuNav("fifthPage");
-          }
-        }}> </div>
+        {array.map((item, index) => (
+          <button
+            key={index + item}
+            className={`${activeUrl === index ? "active buttonNav" : "buttonNav"
+              }`}
+          ></button>
+        ))}
       </nav>
-
     </>
   );
 }

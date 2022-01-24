@@ -1,0 +1,73 @@
+
+.menu_nav {
+	position: fixed;
+	top: 50%;
+	z-index: 5;
+	transform: translateY(-50%);
+	right: 40px;
+	text-align: right;
+}
+.menu_nav button {
+	position: relative;
+	display: block;
+	margin: 7px 0;
+	transition: all 0.2s;
+	right: 0;
+	width: 7px;
+	height: 7px;
+	background-color: #fff;
+	cursor: pointer;
+	border-color: transparent !important;
+	padding: 0;
+	border-width: 0;
+}
+.menu_nav button::before {
+	content: "";
+	position: absolute;
+	transition: all 0.5s;
+	z-index: 0;
+	right: 0;
+	top:0;
+	width: 7px;
+	height: 7px;
+	background-color: #fff;
+}
+.menu_nav button:hover:before {
+	width: 30px;
+}
+.menu_nav button.active {
+	background-color: #000;
+}
+
+.menu_nav .active:before {
+	background-color: #000;
+	width: 25px;
+}
+html, body {
+	-webkit-overflow-scrolling: auto;
+	overscroll-behavior: contain;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none; 
+
+  }
+  body {
+	overflow: auto;
+	position: relative;
+	height: 100%;
+  }
+  
+  html {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+  }
+  
+  .panel {
+	height: 100vh;
+	position: sticky;
+	top: 0;
+  }
