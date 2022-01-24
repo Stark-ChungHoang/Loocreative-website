@@ -1,21 +1,20 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./assets/styles/index.scss";
 import "./assets/styles/fontFace.scss";
 import "./assets/styles/utils.scss";
 import App from "./App";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
-import i18n from "./i18n/i18n";
-import { I18nextProvider } from "react-i18next";
+import "./i18n/i18n";
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <I18nextProvider i18n={i18n}>
+      <Suspense fallback="...loading">
         <App />
-      </I18nextProvider>
+      </Suspense>
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById("root")

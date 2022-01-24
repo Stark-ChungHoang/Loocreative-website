@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import "./style.scss";
-import i18n from "../../i18n/i18n";
 
 const menu = [
   {
@@ -31,7 +31,7 @@ const contact = {
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const { pathname } = useLocation();
-
+  const { i18n } = useTranslation();
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };
@@ -54,9 +54,8 @@ const NavBar = () => {
             </div>
             <div
               onClick={() => handleLanguage("en")}
-              className={`changeLang en ${
-                i18n.language === "en" ? "select" : ""
-              }`}
+              className={`changeLang en ${i18n.language === "en" ? "select" : ""
+                }`}
             >
               EN
             </div>
@@ -73,17 +72,15 @@ const NavBar = () => {
             <div className="changeLangWrapperMenu">
               <div
                 onClick={() => handleLanguage("ko")}
-                className={`changeLangMemnu ko ${
-                  i18n.language === "ko" ? "select" : ""
-                }`}
+                className={`changeLangMemnu ko ${i18n.language === "ko" ? "select" : ""
+                  }`}
               >
                 KR
               </div>
               <div
                 onClick={() => handleLanguage("en")}
-                className={`changeLangMemnu en ${
-                  i18n.language === "en" ? "select" : ""
-                }`}
+                className={`changeLangMemnu en ${i18n.language === "en" ? "select" : ""
+                  }`}
               >
                 EN
               </div>
@@ -92,11 +89,10 @@ const NavBar = () => {
               <a
                 key={key}
                 onClick={handleToggleMenu}
-                className={`list ${
-                  pathname.toLowerCase() === val.path.toLowerCase()
-                    ? "select"
-                    : ""
-                }`}
+                className={`list ${pathname.toLowerCase() === val.path.toLowerCase()
+                  ? "select"
+                  : ""
+                  }`}
                 href={val.path}
               >
                 <li>{val.display}</li>
