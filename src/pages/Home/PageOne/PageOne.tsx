@@ -1,40 +1,53 @@
-import {useEffect } from "react";
+import { useEffect } from "react";
 import Time from "../../../components/Time";
 import "./pageOne.scss";
 import UrlLogo from "../../../assets/images/logo.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 const UrlBackground =
   "https://player.vimeo.com/video/661908910?&amp;autoplay=1&amp;background=1&amp;loop=1&amp;byline=0&amp;title=0";
 
 const PageOne = () => {
-  useEffect(()=> {
-    const title_first = document.querySelector('.md-text');
-    const time = document.querySelector('.time-text');
-    const content = document.querySelector('.contents');
+  useEffect(() => {
+    const title_first = document.querySelector(".md-text");
+    const time = document.querySelector(".time-text");
+    const content = document.querySelector(".contents");
     const revealAnim = () => {
-        const TLFade = gsap.timeline({
-          scrollTrigger: {
+      const TLFade = gsap.timeline({
+        scrollTrigger: {
           trigger: ".page-one",
           start: "top bottom+=50",
-           end: "bottom bottom-=50",
+          end: "bottom bottom-=50",
           toggleActions: "restart reverse restart none",
-          }
+        },
+      });
+      TLFade.from(
+        title_first,
+        {
+          autoAlpha: 0,
+          y: -220,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      )
+        .from(
+          time,
+          { autoAlpha: 0, x: -220, duration: 0.5, ease: "power2.out" },
+          "-=0.1"
+        )
+        .from(content, {
+          autoAlpha: 0,
+          x: -220,
+          duration: 0.5,
+          ease: "power2.out",
         });
-        TLFade
-        .from(title_first, {
-            autoAlpha: 0,
-            y: -220 ,
-            duration:.5,
-            ease: "power2.out",
-           },"-=0.2")
-        .from(time,{autoAlpha: 0, x: -220,duration:.5,ease: "power2.out"},"-=0.1")
-        .from(content,{autoAlpha: 0, x: -220,duration:.5,ease: "power2.out"})
-    }
+    };
 
- revealAnim()
-   },[])
+    revealAnim();
+  }, []);
   const BackgroundVideo = () => (
     <div className="BackgroundVideo">
       <iframe className="Back" src={UrlBackground} title="bg-video" />
@@ -57,11 +70,11 @@ const PageOne = () => {
               CREATIVELY.
             </div>
             <div className="portfolio">
-              <a href="/">
+              <Link to="/works">
                 <div className="contents">
                   VIEW WORK<p className="hoverContents"></p>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="time-text">
               <div>Time is our only limitation.</div>
