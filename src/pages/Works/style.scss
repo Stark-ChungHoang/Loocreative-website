@@ -222,7 +222,7 @@
           background-size: cover;
           background-position: center;
         }
-
+        transition: 400ms all;
         &:hover {
           -webkit-transform: translateY(-5px);
           -ms-transform: translateY(-5px);

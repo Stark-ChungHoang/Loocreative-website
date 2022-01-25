@@ -31,10 +31,17 @@ const Works = () => {
     console.log(card);
     gsap.set(card, {
       opacity: 0,
-      scale: 0.8,
+      scale: 0.6,
     });
+    
     ScrollTrigger.batch(card, {
-      onEnter: batch => batch.forEach((card, index) =>gsap.to(card, {opacity: 1, scale: 1, stagger: 0.5, delay: index * 0.1}))
+      onEnter: batch => {
+        
+        card.forEach((card, index) => {
+        console.log(index);
+        
+        gsap.to(card, {opacity: 1, scale: 1, stagger: 0.4, delay: index * 0.2})
+      })}
 
     });
   },[])
