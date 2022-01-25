@@ -1,5 +1,106 @@
 .page-fourth {
-    height: 100vh;
-    background-color: yellowgreen;
+    position: relative;
     width: 100%;
+    height: 100vh;
+}
+
+.fourth-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    margin: 0 auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    h1 {
+        font-size: 80px;
+        font-family: "Montserrat-Bold";
+        margin-bottom: 40px;
+        text-align: center;
+        visibility: hidden;
+    }
+
+    .list-history {
+        .item-box {
+            height: 250px;
+            overflow-y: auto;
+            color: #8b8b8b;
+            padding-left: 15px;
+
+            &:hover {
+                &::-webkit-scrollbar {
+                    width: 1px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: black;
+                }
+            }
+
+            h2,
+            p {
+                font-size: 12px;
+                margin-bottom: 3px;
+
+            }
+
+            h2 {
+                font-family: 'Montserrat-Medium,Noto Sans KR' !important;
+                font-weight: 600;
+            }
+
+            .item-year {
+                padding-top: 30px;
+            }
+        }
+
+        .slick-current {
+            .year {
+
+                p {
+                    padding-left: 0 !important;
+                }
+            }
+        }
+
+        .item-history {
+            text-align: left;
+            padding-right: 15px;
+
+            .year {
+
+                p {
+                    font-family: "Montserrat-Bold";
+                    font-size: 35px;
+                    padding-left: 10px;
+                    margin-bottom: 0;
+
+                }
+            }
+
+            ::-webkit-scrollbar {
+                width: 1px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #cdcdcd;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .fourth-container {
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
 }

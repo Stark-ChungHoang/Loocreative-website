@@ -35,8 +35,6 @@ function Home() {
     }
   };
   useEffect(() => {
-    console.log(activeUrl);
-
     handleUrl();
   }, [activeUrl]);
 
@@ -50,7 +48,7 @@ function Home() {
 
       gsap.to("body", {
         scrollTo: { y: i * window.innerHeight, autoKill: false },
-        duration: 0.4,
+        duration: 0.5,
         onComplete: () => {
           gsap.set("body", { overflow: "auto" });
           buttonClicked = false;
@@ -84,7 +82,7 @@ function Home() {
       );
     });
     // set up function for menu_nav
-    gsap.utils.toArray("button").forEach((btn: any, i: any) => {
+    gsap.utils.toArray(".buttonNav").forEach((btn: any, i: any) => {
       btn.onclick = () => {
         if (!buttonClicked) {
           buttonClicked = true;

@@ -1,5 +1,112 @@
 .page-five {
     height: 100vh;
-    background-color: hotpink;
     width: 100%;
+}
+
+.fifth-container {
+    background-image: url(../../../assets/images/bg_fifthPage.png);
+    // padding: 40px 0;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .fifth-title {
+        position: absolute;
+        top: 10%;
+        left: 15%;
+        color: #fff;
+
+        h5 {
+            font-family: "Montserrat-Bold" !important;
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+
+    .fifth-wrapper {
+        text-align: left;
+        width: 70%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 15%;
+        left: 15%;
+
+        .block-item {
+            width: 30%;
+            margin-bottom: 50px;
+
+            h3 {
+                font-size: 34px;
+                color: white;
+                margin-bottom: 0;
+                font-family: "Montserrat-Bold";
+                white-space: nowrap;
+            }
+
+            a {
+
+                color: white;
+                visibility: hidden;
+
+                p {
+                    color: #cacaca;
+                    z-index: 99;
+                    position: relative;
+                    margin: 0;
+                    padding: 15px 20px;
+                }
+            }
+
+            .learn-more {
+                a {
+                    color: #8e8e8e;
+                    ;
+                    padding: 15px 20px;
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+
+            .email {
+                position: relative;
+
+                &:hover {
+                    p {
+                        color: black;
+                    }
+
+                    .mail-icon {
+                        display: block !important;
+                    }
+                }
+
+                .mail-icon {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: white;
+                    width: 100%;
+                    text-align: right;
+                    z-index: 1;
+                    display: none;
+                }
+            }
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .fifth-container {
+        .fifth-wrapper {
+            width: 90%;
+        }
+    }
 }
