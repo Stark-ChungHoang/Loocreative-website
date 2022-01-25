@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface CardProps {
   item: any;
+  setIdItem: any;
+  setOpenPopup: any;
 }
 
-const Card: React.FC<CardProps> = ({ item }) => {
-  const { mainImg, videoNew, company, name, type, id } = item;
+const Card: React.FC<CardProps> = ({ item, setIdItem, setOpenPopup }) => {
+  const { img, desc, partners, video, id } = item;
 
-  const [img, setImg] = useState("");
+  const handleSetId = (id: any) => {
+    setIdItem(id);
+    setOpenPopup(true);
+  };
 
   return (
-    <div className="card-pd">
+    <div className="card-pd" onClick={() => handleSetId(id)}>
       <div className="card">
         <div className="contents-hide">
           <div className="inner-flex">
             <div>
-              <p className="desc">{type.toUpperCase()}</p>
+              <p className="desc">{desc}</p>
             </div>
             <div>
-              <p className="partners">{company.en}</p>
-              {/* <p className="title">{name[i18n.language]}</p> */}
+              <p className="partners">{partners}</p>
             </div>
           </div>
         </div>

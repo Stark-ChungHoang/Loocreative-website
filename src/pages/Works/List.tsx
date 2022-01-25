@@ -1,17 +1,25 @@
 import React from "react";
 import Card from "./Card";
-import data from "./data";
 
-// interface ListProps {
-//   data?: any[];
-// }
+interface ListProps {
+  data: any[];
+  setIdItem: any;
+  setOpenPopup: any;
+}
 
-const List = () => {
+const List: React.FC<ListProps> = ({ data, setIdItem, setOpenPopup }) => {
   const renderCards = (data: any[]) => {
-    return data.map((val, key) => <Card item={val} key={key} />);
+    return data.map((val, key) => (
+      <Card
+        setIdItem={setIdItem}
+        setOpenPopup={setOpenPopup}
+        item={val}
+        key={key}
+      />
+    ));
   };
   return (
-    <div className={"card-wr "}>
+    <div className={"card-wr"}>
       <div className="scroll">{renderCards(data)}</div>
     </div>
   );
