@@ -58,8 +58,8 @@ function PageFive() {
           <div className="block-item">
             <h3 className="fifth-name">Partnership.</h3>
             <div className="email">
-              <a className="fifth-contact" href="mailto:loocreative@playlooc.com">
-                <p>loocreative@playlooc.com</p>
+              <a href="mailto:loocreative@playlooc.com">
+                <p  className="fifth-contact">loocreative@playlooc.com</p>
                 <div className="mail-icon">
                   <p>✉</p>
                 </div>
@@ -69,8 +69,8 @@ function PageFive() {
           <div className="block-item">
             <h3 className="fifth-name">Recruiting.</h3>
             <div className="email">
-              <a className="fifth-contact" href="mailto:loocreative@playlooc.com">
-                <p>loocreative@playlooc.com</p>
+              <a href="mailto:loocreative@playlooc.com">
+                <p  className="fifth-contact">loocreative@playlooc.com</p>
                 <div className="mail-icon">
                   <p>✉</p>
                 </div>
