@@ -39,7 +39,6 @@ const NavBar = () => {
 
   const handleLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
-    console.log(lang);
   };
 
   return (
@@ -55,9 +54,8 @@ const NavBar = () => {
             </div>
             <div
               onClick={() => handleLanguage("en")}
-              className={`changeLang en ${
-                i18n.language === "en" ? "select" : ""
-              }`}
+              className={`changeLang en ${i18n.language === "en" ? "select" : ""
+                }`}
             >
               EN
             </div>
@@ -74,17 +72,15 @@ const NavBar = () => {
             <div className="changeLangWrapperMenu">
               <div
                 onClick={() => handleLanguage("ko")}
-                className={`changeLangMemnu ko ${
-                  i18n.language === "ko" ? "select" : ""
-                }`}
+                className={`changeLangMemnu ko ${i18n.language === "ko" ? "select" : ""
+                  }`}
               >
                 KR
               </div>
               <div
                 onClick={() => handleLanguage("en")}
-                className={`changeLangMemnu en ${
-                  i18n.language === "en" ? "select" : ""
-                }`}
+                className={`changeLangMemnu en ${i18n.language === "en" ? "select" : ""
+                  }`}
               >
                 EN
               </div>
@@ -93,11 +89,10 @@ const NavBar = () => {
               <Link
                 key={key}
                 onClick={handleToggleMenu}
-                className={`list ${
-                  pathname.toLowerCase() === val.path.toLowerCase()
+                className={`list ${pathname.toLowerCase() === val.path.toLowerCase()
                     ? "select"
                     : ""
-                }`}
+                  }`}
                 to={val.path}
               >
                 <li>{val.display}</li>

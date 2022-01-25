@@ -10,16 +10,15 @@ interface TimeProps {
 const Time: React.FC<TimeProps> = ({ getTime }) => {
   const [time, setTime] = useState(moment(new Date()).format("HH:mm:ss"));
 
-  const tick = () => {
-    setInterval(() => {
-      setTime(moment(new Date()).format("HH:mm:ss"));
-    }, 1000);
-    // getTime(time);
-  };
 
   useEffect(() => {
-    tick();
-  });
+    const timeLock = setInterval(() => {
+      setTime(moment(new Date()).format("HH:mm:ss"));
+    }, 1000);
+    return (() => {
+      clearInterval(timeLock);
+    });
+  }, []);
   return <>{time}</>;
 };
 

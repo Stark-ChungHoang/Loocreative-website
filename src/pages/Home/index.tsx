@@ -91,6 +91,7 @@ function Home() {
       };
     });
     settingUp = false;
+    return (() => { buttonClicked = true; });
   }, []);
 
   //variable for array menu_nav

@@ -26,25 +26,24 @@ const Works = () => {
   const [idItem, setIdItem] = useState();
   const [item, setItem] = useState(data[0]);
 
-  useEffect(()=> {
-    const card = document.querySelectorAll(".card-pd")
-    console.log(card);
+  useEffect(() => {
+    const card = document.querySelectorAll(".card-pd");
     gsap.set(card, {
       opacity: 0,
       scale: 0.6,
     });
-    
+
     ScrollTrigger.batch(card, {
       onEnter: batch => {
-        
+
         card.forEach((card, index) => {
-        console.log(index);
-        
-        gsap.to(card, {opacity: 1, scale: 1, stagger: 0.4, delay: index * 0.2})
-      })}
+
+          gsap.to(card, { opacity: 1, scale: 1, stagger: 0.4, delay: index * 0.2 });
+        });
+      }
 
     });
-  },[])
+  }, []);
 
 
   useEffect(() => {
