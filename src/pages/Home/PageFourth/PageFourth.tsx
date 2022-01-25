@@ -64,17 +64,19 @@ function PageFourth() {
       {
         breakpoint: 1023,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          initialSlide: 1,
         },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          initialSlide: 1,
         },
       },
       {
@@ -82,6 +84,8 @@ function PageFourth() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: false,
+          initialSlide: 1,
         },
       },
     ],
