@@ -9,7 +9,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 function PageFourth() {
-  //translate 
+  //translate
   const { t } = useTranslation();
 
 
@@ -86,18 +86,22 @@ function PageFourth() {
       },
     ],
   };
-  const renderData = data.history.map((val) => (
+  const renderData = data.history.map((val, index) => (
     <div className="item-history" key={val.id}>
       <div className="year">
         <p className={"year" + val.year}>{val.year}</p>
       </div>
       <div className="item-box">
-        {val.childrenYears.map((child) => (
-          <div className="item-year" key={child.id}>
-            <h2>{child.title}</h2>
-            <p>{child.type}</p>
-          </div>
-        ))}
+        {val.childrenYears.map((child, i) => {
+          const title = "home.fourth.history." + index + ".childrenYears." + i + ".title";
+          const type = "home.fourth.history." + index + ".childrenYears." + i + ".type";
+          return (
+            <div className="item-year" key={child.id}>
+              <h2>{t(title)}</h2>
+              <p>{t(type)}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   ));

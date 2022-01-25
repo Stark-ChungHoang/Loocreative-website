@@ -47,12 +47,12 @@
             p {
                 font-size: 12px;
                 margin-bottom: 3px;
-
             }
 
             h2 {
-                font-family: 'Montserrat-Medium,Noto Sans KR' !important;
-                font-weight: 600;
+                font-family: Montserrat-Medium, Noto Sans KR;
+                font-weight: 100;
+                color: #000;
             }
 
             .item-year {
@@ -62,7 +62,6 @@
 
         .slick-current {
             .year {
-
                 p {
                     padding-left: 0 !important;
                 }
@@ -74,13 +73,11 @@
             padding-right: 15px;
 
             .year {
-
                 p {
                     font-family: "Montserrat-Bold";
                     font-size: 35px;
                     padding-left: 10px;
                     margin-bottom: 0;
-
                 }
             }
 
@@ -91,7 +88,6 @@
             ::-webkit-scrollbar-track {
                 background: #cdcdcd;
             }
-
         }
     }
 }

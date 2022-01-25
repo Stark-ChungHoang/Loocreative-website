@@ -16,6 +16,260 @@
       "culture": {
         "text": "We understand the society needs their own label/keyword of the culture to share their communication. This has become part of their strength in their lives. Moreover, we realized connect people with cultural projects will bring happiness to everyone. Therefore, Loocreative tries to create various cultural events such as music and seminars to reach out to people."
       }
+    },
+    "fourth": {
+      "history": [
+        {
+          "id": 0,
+          "year": "2020",
+          "childrenYears": [
+            {
+              "id": 0,
+              "title": "NETFLX Produces Opening Title of Domestic Drama",
+              "type": "MOTION"
+            },
+            {
+              "id": 1,
+              "title": "Cheil Worldwide / Innocean Partner Selection",
+              "type": "MOTION"
+            },
+            {
+              "id": 2,
+              "title": "Hyndai Card TVC and Viral Imaging",
+              "type": "MOTION"
+            },
+            {
+              "id": 3,
+              "title": "Samsung Grande Dryer AI Digital Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 4,
+              "title": "Samsung Card Collaboration Digital Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 5,
+              "title": "JTBC Value-Mental-Posture Spot Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 6,
+              "title": "SKT Quantum + Galaxy A TVC and Digital Imaging",
+              "type": "MOTION"
+            },
+            {
+              "id": 7,
+              "title": "Hyundai Oilbank, a symbol, animation production",
+              "type": "MOTION"
+            },
+            {
+              "id": 8,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 9,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 10,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 11,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 12,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 13,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 14,
+              "title": "",
+              "type": ""
+            },
+            {
+              "id": 15,
+              "title": "",
+              "type": ""
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "year": "2019",
+          "childrenYears": [
+            {
+              "id": 0,
+              "title": "ma:nyo TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 1,
+              "title": "ISA KNOX TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 2,
+              "title": "Samsung Galaxy FAN Curator Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 3,
+              "title": "Cha-pi CHINA TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 4,
+              "title": "Samsung Galaxy Screensaver Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 5,
+              "title": "Samsung Galaxy Celeb Live Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 6,
+              "title": "Type in Search Word: WWW tvn Drama Title Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 7,
+              "title": "Samsung Galaxy S10 TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 8,
+              "title": "My Country (JTBC Drama) Title Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 9,
+              "title": "SK Holdings TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 10,
+              "title": "Shinsegae Duty Free Shop TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 11,
+              "title": "Chris Lee M/V Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 12,
+              "title": "Samsung Galaxy S10 TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 13,
+              "title": "Naver Series TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 14,
+              "title": "Samsung Galaxy A Domestic and Global TVC Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 15,
+              "title": "Multiple other TVC video production and film/drama title sequence production",
+              "type": "MOTION"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "year": "2018",
+          "childrenYears": [
+            {
+              "id": 0,
+              "title": "LG Display Shocase Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 1,
+              "title": "SSG Campaign TVC 제작",
+              "type": "MOTION"
+            },
+            {
+              "id": 2,
+              "title": "Lineage 2M BI Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 3,
+              "title": "Netflix TV Show \"Kingdom\" Title 제작",
+              "type": "MOTION"
+            },
+            {
+              "id": 4,
+              "title": "Samsung Mobility Shocase Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 5,
+              "title": "SKT / KT / U+ Mobile Operators TVC Production",
+              "type": "MOTION"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "year": "2017",
+          "childrenYears": [
+            {
+              "id": 0,
+              "title": "Establishment of \"LOOC Academy,\" a business-focused educational institution",
+              "type": "ACADEMY"
+            },
+            {
+              "id": 1,
+              "title": "Samsung QLED TV Welcome Video Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 2,
+              "title": "G Dragon \"Untitle\" M/V Production",
+              "type": "MOTION"
+            },
+            {
+              "id": 3,
+              "title": "TaeYang X Lexus TVC and M/V Producton",
+              "type": "MOTION"
+            },
+            {
+              "id": 4,
+              "title": "Hyundai Veloster Viral Video Production",
+              "type": "MOTION"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "year": "2016",
+          "childrenYears": [
+            {
+              "id": 0,
+              "title": "Establishment of loocreative",
+              "type": ""
+            }
+          ]
+        }
+      ]
     }
   },
   "contact": {
