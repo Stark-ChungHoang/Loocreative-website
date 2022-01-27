@@ -40,35 +40,6 @@ function Home() {
 
   //set up animation scroll to section
   useEffect(() => {
-    var keys = { 37: 1, 38: 1, 39: 1, 40: 1 } as any;
-    var supportsPassive = false;
-
-    function preventDefault(e: any) {
-      e.preventDefault();
-    }
-    var wheelOpt = supportsPassive ? { passive: false } : false as any;
-
-    function preventDefaultForScrollKeys(e: any) {
-      if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
-      }
-    }
-    var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel' as any;
-
-    function disableScroll() {
-      window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-      window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-      window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
-      window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-    }
-
-    function enableScroll() {
-      window.removeEventListener('DOMMouseScroll', preventDefault, false);
-      window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-      window.removeEventListener('touchmove', preventDefault, wheelOpt);
-      window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-    }
     var settingUp = true;
     var buttonClicked = false;
 
@@ -76,7 +47,7 @@ function Home() {
       gsap.set("body", { overflow: "hidden" });
 
       gsap.to("body", {
-        scrollTo: { y: i * window.innerHeight, autoKill: true },
+        scrollTo: { y: i * window.innerHeight, autoKill: false },
         duration: 0.5,
         onComplete: () => {
           gsap.set("body", { overflow: "auto" });
@@ -93,15 +64,8 @@ function Home() {
           onEnter: () => {
             if (!buttonClicked && !settingUp) {
               goToSection(i);
-              disableScroll();
             }
           },
-          onLeave: () => {
-            enableScroll();
-          },
-          onLeaveBack: () => {
-            enableScroll();
-          }
         })
       );
 
@@ -111,7 +75,6 @@ function Home() {
           start: "bottom bottom",
           onEnterBack: () => {
             if (!buttonClicked && !settingUp) {
-              disableScroll();
               goToSection(i);
             }
           },
