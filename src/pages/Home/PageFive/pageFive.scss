@@ -1,110 +1,118 @@
 .page-five {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .fifth-container {
-    background-image: url(../../../assets/images/bg_fifthPage.png);
-    // padding: 40px 0;
+  background-image: url(../../../assets/images/bg_fifthPage.png);
+  // padding: 40px 0;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .fifth-title {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    color: #fff;
+
+    h5 {
+      font-family: "Montserrat-Bold" !important;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  .fifth-wrapper {
+    text-align: left;
+    width: 70%;
     margin: 0 auto;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
+    position: absolute;
+    bottom: 15%;
+    left: 15%;
 
-    .fifth-title {
-        position: absolute;
-        top: 10%;
-        left: 15%;
-        color: #fff;
+    .block-item {
+      width: 30%;
+      margin-bottom: 50px;
 
-        h5 {
-            font-family: "Montserrat-Bold" !important;
-            font-size: 14px;
-            line-height: 24px;
+      h3 {
+        font-size: 34px;
+        color: white;
+        margin-bottom: 0;
+        font-family: "Montserrat-Bold";
+        white-space: nowrap;
+        padding-bottom: 5px;
+      }
+
+      a {
+        color: white;
+
+        p {
+          color: #cacaca;
+          z-index: 1;
+          position: relative;
+          margin: 0;
+          padding: 7px 20px;
+          visibility: hidden;
+          transition: 0.2s;
         }
-    }
+      }
 
-    .fifth-wrapper {
-        text-align: left;
-        width: 70%;
-        margin: 0 auto;
-        position: absolute;
-        bottom: 15%;
-        left: 15%;
+      .learn-more {
+        a {
+          visibility: hidden;
+          color: #8e8e8e;
+          padding: 15px 20px;
 
-        .block-item {
-            width: 30%;
-            margin-bottom: 50px;
-
-            h3 {
-                font-size: 34px;
-                color: white;
-                margin-bottom: 0;
-                font-family: "Montserrat-Bold";
-                white-space: nowrap;
-            }
-
-            a {
-                color: white;
-
-                p {
-                    color: #cacaca;
-                    z-index: 1;
-                    position: relative;
-                    margin: 0;
-                    padding: 15px 20px;
-                    visibility: hidden;
-                }
-            }
-
-            .learn-more {
-                a {
-                    visibility: hidden;
-                    color: #8e8e8e;
-                    padding: 15px 20px;
-
-                    &:hover {
-                        color: white;
-                    }
-                }
-            }
-
-            .email {
-                position: relative;
-
-                &:hover {
-                    p {
-                        color: black;
-                    }
-
-                    .mail-icon {
-                        display: block !important;
-                    }
-                }
-
-                .mail-icon {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: white;
-                    width: 100%;
-                    text-align: right;
-                    z-index: 1;
-                    display: none;
-                }
-            }
+          &:hover {
+            color: white;
+          }
         }
+      }
+
+      .email {
+        position: relative;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: #fff;
+          p {
+            color: black;
+          }
+
+          .mail-icon {
+            display: block !important;
+
+            p {
+              visibility: visible;
+            }
+          }
+        }
+
+        .mail-icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          //   background-color: white;
+          width: 100%;
+          text-align: right;
+          z-index: 1;
+          display: none;
+        }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .fifth-container {
-        .fifth-wrapper {
-            width: 90%;
-        }
+  .fifth-container {
+    .fifth-wrapper {
+      width: 90%;
     }
+  }
 }
