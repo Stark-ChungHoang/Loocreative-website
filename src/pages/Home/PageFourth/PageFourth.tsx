@@ -7,12 +7,11 @@ import DataHistory from "./DataHistory.json";
 import { useTranslation } from 'react-i18next';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {isMobile} from "react-device-detect"
 gsap.registerPlugin(ScrollTrigger);
 function PageFourth() {
-  
   //translate
   const { t } = useTranslation();
+
 
   //setup animation
   useEffect(() => {
@@ -44,13 +43,11 @@ function PageFourth() {
           { autoAlpha: 0, x: -420, duration: 0.6, ease: "power2.out" },
           "-=0.1"
         )
-        if(!isMobile) {
-          TLFade.to(slideContainer, {
-            x: (-window.innerWidth * 70) / 100 / 4,
-            duration: 0.5,
-            ease: "power2.out",
-          });
-        }
+        .to(slideContainer, {
+          x: (-window.innerWidth * 70) / 100 / 4,
+          duration: 0.5,
+          ease: "power2.out",
+        });
     };
 
     revealAnim();
