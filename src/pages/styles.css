@@ -1,0 +1,31 @@
+/* 
+
+
+
+
+button {
+  padding: 0.93em 1.87em;
+  background: #35495e;
+  border-radius: 5px;
+  border-color: transparent;
+  display: block;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+.list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 600px;
+  height: 600px;
+  overflow-y: scroll;
+}
+.item {
+  width: 100%;
+  height: 250px;
+  background-color: #35495e;
+  color: red;
+} */
