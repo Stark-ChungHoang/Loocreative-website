@@ -27,6 +27,7 @@
     }
 
     .list-history {
+        visibility: hidden;
         .item-box {
             height: 250px;
             overflow-y: auto;
