@@ -32,8 +32,7 @@ html {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 *,
@@ -103,6 +102,9 @@ body {
 }
 #fp-nav {
   right: 100px !important;
+  @media (max-width: 1024px) {
+    right: 50px !important;
+  }
   ul {
     li {
       margin: 0 !important;
@@ -111,7 +113,7 @@ body {
 }
 #fp-nav ul li a span {
   border-radius: 0 !important;
-  position: absolute;
+  position: relative;
   z-index: 1;
   height: 7px !important;
   width: 7px !important;
@@ -119,16 +121,18 @@ body {
   background: #cdcdcd !important;
   margin: 0 !important;
   transition: all 0.3s !important;
-  right: -50% !important;
+  left: unset !important;
+  right: 0 !important;
 }
-.fp-slidesNav ul li a span {
- right: -50% !important;
 
-}
 #fp-nav ul li a.active span {
   background-color: #000 !important;
- width: 25px !important;
+  width: 25px !important;
+  @media (max-width: 750px) {
+    background-color: #000;
+    width: 10px !important;
+  }
 }
 #fp-nav ul li a:hover span {
- width: 25px !important;
+  width: 30px !important;
 }
