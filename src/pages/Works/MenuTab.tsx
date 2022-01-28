@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import DropDown from "../../components/DropDown";
 
 interface MenuTabProps {
@@ -13,12 +13,6 @@ const MenuTab: React.FC<MenuTabProps> = ({ menus, menuType, setMenuType }) => {
   const handleTab = (tab: string) => {
     setMenuType(tab);
   };
-
-  useEffect(() => {
-    changeAspectMobile(window);
-    window.addEventListener("resize", changeAspect);
-  }, []);
-
   const changeAspect = (window: any) => {
     if (window.currentTarget.innerWidth >= 1024) {
       setIsDesktop(true);
@@ -26,6 +20,14 @@ const MenuTab: React.FC<MenuTabProps> = ({ menus, menuType, setMenuType }) => {
       setIsDesktop(false);
     }
   };
+  const changeAspectMemo = useMemo(() => changeAspect, []);
+
+  useEffect(() => {
+    changeAspectMobile(window);
+    window.addEventListener("resize", changeAspectMemo);
+    return (() => { window.removeEventListener("resize", changeAspectMemo); });
+  }, []);
+
 
   const changeAspectMobile = (window: any) => {
     if (window.innerWidth >= 1024) {
