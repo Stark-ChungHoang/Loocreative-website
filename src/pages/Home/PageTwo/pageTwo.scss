@@ -23,6 +23,7 @@
       font-family: "Montserrat-Medium";
       padding: 0;
       margin: 0;
+      visibility: hidden;
     }
   }
   .text_wr {
@@ -31,6 +32,7 @@
     font-weight: 100;
     text-align: center;
     line-height: 8.5rem;
+    visibility: hidden;
     @media (max-width: 687px) {
       font-size: 22px;
       line-height: 3.5rem;

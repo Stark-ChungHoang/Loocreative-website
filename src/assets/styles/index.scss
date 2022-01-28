@@ -101,3 +101,34 @@ body {
     width: 10px;
   }
 }
+#fp-nav {
+  right: 100px !important;
+  ul {
+    li {
+      margin: 0 !important;
+    }
+  }
+}
+#fp-nav ul li a span {
+  border-radius: 0 !important;
+  position: absolute;
+  z-index: 1;
+  height: 7px !important;
+  width: 7px !important;
+  border: 0;
+  background: #cdcdcd !important;
+  margin: 0 !important;
+  transition: all 0.3s !important;
+  right: -50% !important;
+}
+.fp-slidesNav ul li a span {
+ right: -50% !important;
+
+}
+#fp-nav ul li a.active span {
+  background-color: #000 !important;
+ width: 25px !important;
+}
+#fp-nav ul li a:hover span {
+ width: 25px !important;
+}

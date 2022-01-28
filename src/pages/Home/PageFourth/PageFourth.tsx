@@ -5,54 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 import "./pageFourth.scss";
 import DataHistory from "./DataHistory.json";
 import { useTranslation } from 'react-i18next';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
 function PageFourth() {
   //translate
   const { t } = useTranslation();
-
-
-  //setup animation
-  useEffect(() => {
-    const title = document.querySelector(".fourth-title");
-    const slide = document.querySelectorAll(".list-history");
-    const slideContainer = document.querySelectorAll(".slick-track");
-
-    const revealAnim = () => {
-      const TLFade = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".page-fourth",
-          start: "top top+=5",
-          end: "bottom bottom-=50",
-          toggleActions: "restart reverse restart reverse",
-        },
-      });
-      TLFade.from(
-        title,
-        {
-          autoAlpha: 0,
-          y: -220,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.1"
-      )
-        .from(
-          slide,
-          { autoAlpha: 0, x: -420, duration: 0.6, ease: "power2.out" },
-          "-=0.1"
-        )
-        .to(slideContainer, {
-          x: (-window.innerWidth * 70) / 100 / 4,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-    };
-
-    revealAnim();
-  }, []);
-
   const [data, setData] = useState(DataHistory);
   var settings = {
     dots: false,
